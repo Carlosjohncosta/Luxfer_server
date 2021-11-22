@@ -4,6 +4,8 @@ const logger = require("./middleware/logger");
 const mysql = require("mysql");
 const session = require("express-session");
 const dbconnect = require("./middleware/dbconnect");
+const https = require("https");
+const fs = require("fs");
 const app = express();
 
 //body parser
@@ -20,9 +22,10 @@ app.use(session({
 	saveUninitialized: true
 }));*/
 
+//middleware loader
 app.use("/auth", require("./middleware/auth"));
 app.use("/add_user", require("./middleware/add_user"));
-//app.use(logger);
+app.use(logger);
 
 
 //static folder
@@ -40,4 +43,12 @@ app.get('/:url', function(request, response) {
 const PORT = process.env.PORT || 3001;
 
 //request listener
-app.listen(PORT, () => console.log(`Server has started on port ${PORT}`));
+app.listen(PORT, '10.2.0.141', () => console.log(`Server has started on port ${PORT}`));
+
+/*https.createServer({
+	key: fs.readFileSync('server.key'),
+	cert: fs.readFileSync('server.cert')
+  }, app)
+  .listen(PORT, '10.2.0.141', function () {
+	console.log(`Server running on port: ${PORT}.`);
+  });*/
