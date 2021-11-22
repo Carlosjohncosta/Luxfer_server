@@ -4,7 +4,7 @@ html, body {
     margin-top: 0;
     margin-left: 0;
     font-family: 'Rubik';
-    background-color: #F5F5F5
+    background-color: #F7F8FC;
 }
 
 main, header {
@@ -14,18 +14,17 @@ main, header {
 
 #body_wrapper {
     height: 100%;
-    padding-left: 250px;
+    padding-left: 300px;
     display: block;
 }
 
 #main_nav {
-    background-color: navy;
     height: 100%;
-    width: 250px;
+    background-color: #19446D;
+    width: 300px;
     margin-left: 0px;
     float: left;
     position: fixed;
-    user-select: none;
 }
 
 #main_nav ul {
@@ -34,7 +33,6 @@ main, header {
 }
 
 #main_nav ul li {
-    border-bottom: 2px solid #00003f;
     color: #F5F5F5;
     text-align: left;
     padding-top: 15px;
@@ -43,8 +41,9 @@ main, header {
 }
 
 #logo_container {
+    font-size: 0;
     display: inline-block;
-    width: 250px;
+    width: 300px;
     height: 150px;
     background-color: #00003f;
 }
@@ -53,8 +52,8 @@ main, header {
     display: block;
     margin-top: 25px;
     margin-bottom: 25px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 100px;
+    margin-right: 100px;
 }
 
 #top_bar {
@@ -62,18 +61,17 @@ main, header {
     background: #FFFFFF;
     display: block;
     margin: 0;
-    border-top: 2px solid #DCDCDC;
-    border-bottom: 2px solid #DCDCDC;  
 }
+
+header {
+    background-color:	#EAEAF2;
+    text-align: center;
+} 
 
 #top_bar p {
     text-align: right;
     margin: 3px;
 }  
-
-header {
-    text-align: center;
-} 
 
 h4 {
     margin: 10px;
@@ -83,12 +81,25 @@ h2 {
     padding-left: 20px;
 }
 
-#main_content_wrapper {
+#content_wrapper {
     margin-left: 20px;
-    padding: 20px;
+    padding: 5px;
     margin-right: 20px;
-    background-color: 	#DCDCDC;   
-    border-radius: 10px;
+    background-color: 	#EAEBF0;   
+    border-radius: 5px;
+}
+
+#content_wrapper h4 {
+    margin-left: 30px;
+    font-size: 15px;
+}
+
+#inner_content_wrapper {
+    background-color: #FFFFFF;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 5px;
+    padding: 10px;
 }
 
 .My_files {
@@ -96,14 +107,5 @@ h2 {
 }
 
 #main_nav li:hover{
-    background-color: #00003f;
-}
-
-#main_nav li:active {
-    background-color: navy;
-}
-
-#content_wrapper {
-    background-color: #F5F5F5;
-    border-radius: 5px;
+    background-color: #29567D;
 }

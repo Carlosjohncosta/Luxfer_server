@@ -11,14 +11,14 @@ app.use(express.json());
 app.use(express.urlencoded({extended : false}));
 
 //connects to database
-dbconnect();
+/*dbconnect();
 
 
 app.use(session({
 	secret: 'secret',
 	resave: true,
 	saveUninitialized: true
-}));
+}));*/
 
 app.use("/auth", require("./middleware/auth"));
 app.use("/add_user", require("./middleware/add_user"));
