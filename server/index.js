@@ -35,6 +35,10 @@ app.get('/', function(request, response) {
 	response.sendFile(path.join(__dirname + '/public/login.html'));
 });
 
+app.get('/scripts/:file', function(request, response) {
+	response.sendFile(path.join(__dirname + `/public/scripts/${request.params.file}`));
+});
+
 app.get('/:url', function(request, response) {
 	response.sendFile(path.join(__dirname + `/public/${request.params.url}.html`));
 });
@@ -43,7 +47,7 @@ app.get('/:url', function(request, response) {
 const PORT = process.env.PORT || 3001;
 
 //request listener
-app.listen(PORT, '10.2.0.141', () => console.log(`Server has started on port ${PORT}`));
+app.listen(PORT, () => console.log(`Server has started on port ${PORT}`));
 
 /*https.createServer({
 	key: fs.readFileSync('server.key'),
