@@ -1,0 +1,109 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin-top: 0;
+    margin-left: 0;
+    font-family: 'Rubik';
+    background-color: #F5F5F5
+}
+
+main, header {
+    display: inline-block;
+    width: 100%
+}
+
+#body_wrapper {
+    height: 100%;
+    padding-left: 250px;
+    display: block;
+}
+
+#main_nav {
+    background-color: navy;
+    height: 100%;
+    width: 250px;
+    margin-left: 0px;
+    float: left;
+    position: fixed;
+    user-select: none;
+}
+
+#main_nav ul {
+    padding: 0px;
+    margin: 0px;
+}
+
+#main_nav ul li {
+    border-bottom: 2px solid #00003f;
+    color: #F5F5F5;
+    text-align: left;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 10px;
+}
+
+#logo_container {
+    display: inline-block;
+    width: 250px;
+    height: 150px;
+    background-color: #00003f;
+}
+
+#logo {
+    display: block;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#top_bar {
+    padding: 10px;
+    background: #FFFFFF;
+    display: block;
+    margin: 0;
+    border-top: 2px solid #DCDCDC;
+    border-bottom: 2px solid #DCDCDC;  
+}
+
+#top_bar p {
+    text-align: right;
+    margin: 3px;
+}  
+
+header {
+    text-align: center;
+} 
+
+h4 {
+    margin: 10px;
+}
+
+h2 {
+    padding-left: 20px;
+}
+
+#main_content_wrapper {
+    margin-left: 20px;
+    padding: 20px;
+    margin-right: 20px;
+    background-color: 	#DCDCDC;   
+    border-radius: 10px;
+}
+
+.My_files {
+    display: none;
+}
+
+#main_nav li:hover{
+    background-color: #00003f;
+}
+
+#main_nav li:active {
+    background-color: navy;
+}
+
+#content_wrapper {
+    background-color: #F5F5F5;
+    border-radius: 5px;
+}
