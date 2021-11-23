@@ -10,21 +10,26 @@ router.post('/', function(request, response) {
 	const username = request.body.username;
 	const password = request.body.password;
 	if (username && password) {
-		con.query('SELECT * FROM accounts WHERE username = ? AND password = ?', [username, password], function(error, results, fields) {
+		con.query('SELECT Password FROM login WHERE Username = ?', [username], function(error, results, fields) {
 			if (results.length > 0) {
-				request.session.loggedin = true;
-				request.session.username = username;
-				console.log("redirecting");
-				response.send("/home");
+				bcrypt.compare(password, results.password, (err, result)=> {
+					if (result) {
+						request.session.loggedin = true;
+						request.session.username = username;
+						console.log("redirecting");
+						response.send("/home");
+						return;
+					} else {
+						response.send("incorrect");
+						return;
+					}
+				});
 			} else {
-				response.send('incorrect');
-			}			
-			response.end();
+				response.send("invalid");
+				return;
+			} 			
 		});
-	} else {
-		response.send('invalid');
-		response.end();
-	}
+	} 
 });
 
 

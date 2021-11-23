@@ -31,17 +31,41 @@ app.use(logger);
 //static folder
 app.use(express.static(path.join(__dirname, "public")));
 
-app.get('/', function(request, response) {
+
+
+
+//-------------------------ROUTES-----------------------------------//
+app.get('/', (request, response) => {
 	response.sendFile(path.join(__dirname + '/public/login.html'));
 });
 
-app.get('/scripts/:file', function(request, response) {
+app.get('/api/:file', (request, response) => {
+	response.sendFile(path.join(__dirname + `/api/${request.params.file}`));
+});
+
+app.get('/scripts/:file', (request, response) => {
 	response.sendFile(path.join(__dirname + `/public/scripts/${request.params.file}`));
 });
 
-app.get('/:url', function(request, response) {
+app.get('/styles/:file', (request, response) => {
+	response.sendFile(path.join(__dirname + `/public/styles/${request.params.file}`));
+});
+
+app.get('/:url', (request, response) => {
 	response.sendFile(path.join(__dirname + `/public/${request.params.url}.html`));
 });
+
+app.get('/files/:file', (request, response) => {
+	response.sendFile(path.join(__dirname + `/files/${request.params.file}`));
+});
+
+app.get('/icons/:file', (request, response) => {
+	response.sendFile(path.join(__dirname + `/icons/${request.params.file}`));
+});
+//-------------------------ROUTES-----------------------------------//
+
+
+
 
 //port seup
 const PORT = process.env.PORT || 3001;

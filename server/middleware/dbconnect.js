@@ -5,7 +5,7 @@ const dbconnect = () => {
         host     : 'localhost',
         user     : 'root',
         password : 'Wolfie3141.',
-        database : 'nodelogin'
+        database : 'user_info'
     });
 
     con.connect(function(err) {
