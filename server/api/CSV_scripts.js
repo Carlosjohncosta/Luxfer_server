@@ -2,16 +2,17 @@
 //cannot work without local host server (CORS policy error)
 let data;
 
-$.ajax({
-    type: "GET",
-    url: "files/test.csv",
-    success: (response)=> {
-        data = $.csv.toArrays(response);
-        genTable();
-    }
-});
+let getTable = (fileName, TableId) => {
+    $.ajax({
+        type: "GET",
+        url: `files/${fileName}`,
+        success: (response)=> {
+            data = $.csv.toArrays(response);
+            genTable(TableId);
+        }
+    });
+}
 
-
-genTable = () => {
+genTable = (TableId) => {
     console.log(data);
 }

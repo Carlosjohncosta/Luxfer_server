@@ -1,16 +1,26 @@
 const express = require("express");
 const router = express.Router();
-const dbconnect = require("./dbconnect");
-const mysql = require("mysql");
+const config = require("./dbConfig");
+const sql = require("mssql");
 const bcrypt = require('bcrypt');
 
-router.post('/', function(request, response) {
-	const con = dbconnect();
-	console.log("here");
-	const username = request.body.username;
-	const password = request.body.password;
+router.post('/', function(req, res) {
+
+	const username = req.body.username;
+	const password = req.body.password;
 	if (username && password) {
-		con.query('SELECT Password FROM login WHERE Username = ?', [username], function(error, results, fields) {
+		sql.connect(config, (err)=> {
+			if (err) {
+				console.log(err);
+				return;
+			} else {
+				console.log("working");
+			}
+		})
+
+
+
+		/*con.query('SELECT Password FROM login WHERE Username = ?', [username], function(error, results, fields) {
 			if (results.length > 0) {
 				bcrypt.compare(password, results.password, (err, result)=> {
 					if (result) {
@@ -28,7 +38,7 @@ router.post('/', function(request, response) {
 				response.send("invalid");
 				return;
 			} 			
-		});
+		});*/
 	} 
 });
 

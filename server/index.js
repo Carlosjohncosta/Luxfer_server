@@ -1,26 +1,17 @@
 const express = require("express");
 const path = require("path");
 const logger = require("./middleware/logger");
-const mysql = require("mysql");
+const mssql = require("mssql");
 const session = require("express-session");
-const dbconnect = require("./middleware/dbconnect");
 const https = require("https");
 const fs = require("fs");
 const app = express();
+const sql = require("mssql");
 
 //body parser
 app.use(express.json());
 app.use(express.urlencoded({extended : false}));
 
-//connects to database
-/*dbconnect();
-
-
-app.use(session({
-	secret: 'secret',
-	resave: true,
-	saveUninitialized: true
-}));*/
 
 //middleware loader
 app.use("/auth", require("./middleware/auth"));
@@ -30,7 +21,6 @@ app.use(logger);
 
 //static folder
 app.use(express.static(path.join(__dirname, "public")));
-
 
 
 
