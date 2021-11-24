@@ -1,7 +1,10 @@
 # CHANGE LOG
 
+## 24/11/2021 14:03
+- Added some basic authentication using express-session.
+
 ## 24/11/2021 10:41
--Auth and add new user now working with server (Yayy!)
+- Auth and add new user now working with server (Yayy!)
 
 ## 24/11/2021 08:49
 - Added supprt for sql server.

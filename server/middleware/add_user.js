@@ -6,7 +6,7 @@ const config = require("./dbConfig");
 const sql = require("mssql");
 const saltRounds = 10;
 
-
+//pretty self explanitory, gets user input and inserts into database. Saves hashed password.
 router.post('/', (req, res)=>{
     let username = req.body.username;
     let email = req.body.email;
