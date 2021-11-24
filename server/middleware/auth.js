@@ -10,36 +10,27 @@ router.post('/', function(req, res) {
 	const password = req.body.password;
 	if (username && password) {
 		sql.connect(config, (err)=> {
-			if (err) {
-				console.log(err);
-				return;
-			} else {
-				console.log("working");
-			}
+			if (err) throw(err);
+			sql.query("SELECT Password FROM dbo.User_Info WHERE Username = '" + username + "'", function(err, results) {
+				if (err) throw(err);
+				var hash = results.recordset[0];
+					bcrypt.compare(password, hash.Password, (err, result)=> {
+						if (result) {
+							console.log("redirecting");
+							res.send("/home");
+							return;
+						} else {
+							res.send("incorrect");
+							return;
+						}
+					});			
+			});
+
 		})
-
-
-
-		/*con.query('SELECT Password FROM login WHERE Username = ?', [username], function(error, results, fields) {
-			if (results.length > 0) {
-				bcrypt.compare(password, results.password, (err, result)=> {
-					if (result) {
-						request.session.loggedin = true;
-						request.session.username = username;
-						console.log("redirecting");
-						response.send("/home");
-						return;
-					} else {
-						response.send("incorrect");
-						return;
-					}
-				});
-			} else {
-				response.send("invalid");
-				return;
-			} 			
-		});*/
-	} 
+	} else {
+		res.send("invalid");
+		return;
+	}
 });
 
 
