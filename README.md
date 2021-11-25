@@ -1,6 +1,6 @@
 # CHANGE LOG
 
-## 25/11/2021
+## 25/11/2021 17:16
 - Added api to get pucblic user info, middleware is for private and public info (password, uuid.)
 - slight UI adjustment
 
