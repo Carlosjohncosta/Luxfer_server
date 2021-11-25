@@ -1,5 +1,9 @@
 # CHANGE LOG
 
+## 25/11/2021 13:42
+- Added user_info middleware.
+- Added extra authentication
+
 ## 25/11/2021 10:08
 - Added get_file to api and added table display function (CSV only).
 

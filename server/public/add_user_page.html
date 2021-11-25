@@ -31,9 +31,7 @@
             contentType: 'application/json',
             data: JSON.stringify({"username": username, "email": email, "password": password})
           }).done((data)=>{
-            if (data == "invalid") {
-              $("#error").html("Please enter username, email and password.");
-            } 
+            $("#error").html(data);
           });
         });
       });
