@@ -17,25 +17,19 @@ app.use(session({
 }))
 
 
-//middleware loader
+//middleware and apiloader
 app.use("/auth", require("./middleware/auth"));
 app.use("/add_user", require("./middleware/add_user"));
+app.use("/get_file", require("./api/get_file"));
 app.use(logger);
 
 
 //static folder
-app.use(express.static(path.join(__dirname, "public")));
-
-
-
+app.use('/', express.static(path.join(__dirname, "public")));
 //-------------------------ROUTES-----------------------------------//
 app.get('/', (request, response) => {
 	request.session.destroy();
 	response.sendFile(path.join(__dirname + '/public/login.html'));
-});
-
-app.get('/api/:file', (request, response) => {
-	response.sendFile(path.join(__dirname + `/api/${request.params.file}`));
 });
 
 app.get('/scripts/:file', (request, response) => {
@@ -61,6 +55,7 @@ app.get('/files/:file', (request, response) => {
 app.get('/icons/:file', (request, response) => {
 	response.sendFile(path.join(__dirname + `/icons/${request.params.file}`));
 });
+
 //-------------------------ROUTES-----------------------------------//
 
 

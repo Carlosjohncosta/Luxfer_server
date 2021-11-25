@@ -25,7 +25,7 @@ router.post('/', function(req, res) {
 				//gets hashed password from results.
 				var hash = results.recordset[0];
 
-				//Checks if hash is defined; no username matching inputed username.
+				//Checks if hash is defined; if not, no username matching inputed username.
 				if (hash) {
 					bcrypt.compare(password, hash.Password, (err, result)=> {
 						if (result) {

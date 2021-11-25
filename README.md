@@ -1,5 +1,8 @@
 # CHANGE LOG
 
+## 25/11/2021 10:08
+- Added get_file to api and added table display function (CSV only).
+
 ## 24/11/2021 14:03
 - Added some basic authentication using express-session.
 
