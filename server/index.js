@@ -28,6 +28,7 @@ app.use("/get_file", require("./api/get_file"));
 app.use('/', express.static(path.join(__dirname, "public")));
 //-------------------------ROUTES-----------------------------------//
 app.get('/', (request, response) => {
+	console.log(`${request.session.username} logged out.`);
 	request.session.destroy();
 	response.sendFile(path.join(__dirname + '/public/login.html'));
 });

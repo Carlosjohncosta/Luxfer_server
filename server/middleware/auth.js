@@ -3,8 +3,7 @@ const router = express.Router();
 const config = require("./dbConfig");
 const sql = require("mssql");
 const bcrypt = require('bcrypt');
-const session = require("express-session");
-
+let spChars = /[!@#$%^&*()_+\-=\[\]{};':"\\|,<>\/?]+/;
 
 router.post('/', function(req, res) {
 
@@ -12,12 +11,17 @@ router.post('/', function(req, res) {
 	const username = req.body.username;
 	const password = req.body.password;
 
+	if(spChars.test(username)){
+		res.send("incorrect");
+		return;
+	  }
+
 	if (username && password) {
 
 		//Connects to databse using settings in config file.
 		sql.connect(config, (err)=> {
 			if (err) throw(err);
-
+	
 			//Queries the database for password associated with username.
 			sql.query("SELECT Password FROM dbo.User_Info WHERE Username = '" + username + "'", function(err, results) {
 				if (err) throw(err);
@@ -32,7 +36,7 @@ router.post('/', function(req, res) {
 							//sets session headers.
 							req.session.isAuth = true;
 							req.session.username = username;
-							console.log("redirecting");
+							console.log(`${username} logged in.`);
 							//sends response. Not using redirect as the site script re-directs;
 							res.send("/home");
 							return;
