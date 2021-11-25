@@ -68,8 +68,15 @@ header {
     text-align: center;
 } 
 
-#top_bar p {
-    text-align: right;
+#email {
+    display: inline;
+    float: right;
+    margin-top: 0px;
+}  
+
+#username {
+    display: block;
+    text-align: left;
     margin: 3px;
 }  
 

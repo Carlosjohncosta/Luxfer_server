@@ -6,6 +6,7 @@ module.exports = {
     user: "sa",
     password: 'TestApp123$',
     port: 1433,
-	trustServerCertificate: true
+	trustServerCertificate: true,
+    spChars: /[!@#$%^&*()_+\-=\[\]{};':"\\|,<>\/?]+/
 };
 

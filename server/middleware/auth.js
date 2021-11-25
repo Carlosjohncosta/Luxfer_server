@@ -3,7 +3,6 @@ const router = express.Router();
 const config = require("./dbConfig");
 const sql = require("mssql");
 const bcrypt = require('bcrypt');
-let spChars = /[!@#$%^&*()_+\-=\[\]{};':"\\|,<>\/?]+/;
 
 router.post('/', function(req, res) {
 
@@ -11,8 +10,8 @@ router.post('/', function(req, res) {
 	const username = req.body.username;
 	const password = req.body.password;
 
-	if(spChars.test(username)){
-		res.send("incorrect");
+	if(config.spChars.test(username)){
+		res.send("Incorrect password.");
 		return;
 	  }
 
@@ -41,17 +40,17 @@ router.post('/', function(req, res) {
 							res.send("/home");
 							return;
 						} else {
-							res.send("incorrect");
+							res.send("Incorrect password.");
 							return;
 						}
 					});	
 				} else {
-					res.send("incorrect");
+					res.send("Incorrect password.");
 				}		
 			});
 		})
 	} else {
-		res.send("invalid");
+		res.send("Please input username and password.");
 		return;
 	}
 });

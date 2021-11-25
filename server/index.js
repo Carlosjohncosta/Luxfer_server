@@ -21,6 +21,7 @@ app.use(session({
 app.use("/auth", require("./middleware/auth"));
 app.use("/add_user", require("./middleware/add_user"));
 app.use("/get_file", require("./api/get_file"));
+app.use("/public_user_info", require("./api/public_user_info"));
 //app.use(logger);
 
 

@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const path = require('path');
-const userInfo = require(__dirname + '../../middleware/user_info')
+const userInfo = require(__dirname + '../../middleware/private_user_info')
 const session = require("express-session");
 
 router.post('/', (req, res) => {

@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const {v4 : uuidv4} = require('uuid');
 const config = require("./dbConfig");
 const sql = require("mssql");
-const userInfo = require(__dirname + '../../middleware/user_info')
+const userInfo = require(__dirname + '../../middleware/private_user_info')
 const saltRounds = 10;
 
 //pretty self explanitory, gets user input and inserts into database. Saves hashed password.
