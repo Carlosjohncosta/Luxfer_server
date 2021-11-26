@@ -3,6 +3,7 @@
 ## 26/11/2021 09:54
 - Added some more authentication
 - Added routes to seperate file to clean up index.
+- Added more sequre SQL and secret key.
 
 ## 25/11/2021 17:16
 - Added api to get pucblic user info, middleware is for private and public info (password, uuid.)
