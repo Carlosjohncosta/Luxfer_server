@@ -38,6 +38,7 @@ main, header {
     padding-top: 15px;
     padding-bottom: 15px;
     padding-left: 10px;
+    user-select: none;
 }
 
 #logo_container {

@@ -1,7 +1,7 @@
 //cannot work without local host server (CORS policy error)
 let data;
 
-//callBack defaults to gentable.
+//callBack defaults to genTable.
 let getFile = (fileName, tableId, callBack = genTable) => {
     //gets file.
     $.ajax({

@@ -8,7 +8,12 @@ module.exports = async function (username){
     });
     return userPromise = new Promise((resolve, reject) => {
         sql.query("SELECT * FROM dbo.User_Info WHERE Username = '" + username + "'", (err, result) => {
-           resolve(result.recordset[0]); 
+            try {
+                resolve(result.recordset[0]); 
+            } catch (err) {
+                result = false;
+                resolve(result);
+            }
         });
     });
 }

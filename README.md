@@ -1,8 +1,12 @@
 # CHANGE LOG
 
+## 26/11/2021 09:54
+- Added some more authentication
+- Added routes to seperate file to clean up index.
+
 ## 25/11/2021 17:16
 - Added api to get pucblic user info, middleware is for private and public info (password, uuid.)
-- slight UI adjustment
+- Slight UI adjustment.
 
 ## 25/11/2021 13:42
 - Added user_info middleware.

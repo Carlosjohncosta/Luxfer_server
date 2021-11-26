@@ -1,7 +1,7 @@
-let userInfo;
+//simple user info request, will be modified to be more dynamic.
 
 $.ajax({
-    url: '/public_user_info',
+    url: '/user_info',
     type: 'GET',
     contentType: 'application/json',
     success: function(data) {
@@ -10,5 +10,4 @@ $.ajax({
     }
 });
 
-console.log(userInfo);
 

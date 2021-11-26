@@ -7,10 +7,10 @@ const sql = require("mssql");
 const userInfo = require(__dirname + '../../middleware/private_user_info')
 const saltRounds = 10;
 
-//pretty self explanitory, gets user input and inserts into database. Saves hashed password.
 router.post('/', (req, res)=>{
+    //gets current user info and checks if user is logged in and if user is admin. Throws Acess denied if conditions are not met.
     userInfo(req.session.username).then((user) => {
-        if (user.isAdmin == true) {
+        if (user && user.isAdmin == true) {
             let username = req.body.username;
             let email = req.body.email;
             let password = req.body.password;
