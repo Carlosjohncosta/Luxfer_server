@@ -10,12 +10,20 @@ router.post('/', function(req, res) {
 	const username = req.body.username;
 	const password = req.body.password;
 
-	if(config.spChars.test(username)){
-		res.send("Incorrect password.");
-		return;
-	  }
-
 	if (username && password) {
+		
+		//detects if user is already logged in.
+		if(req.session.username) {
+			res.send("Cannot login with active session, Please refresh browser");
+			req.session.destroy();
+			return;
+		}
+
+		//filters special characters.
+		if(config.spChars.test(username)){
+			res.send("Incorrect password.");
+			return;
+		}
 
 		//Connects to databse using settings in config file.
 		sql.connect(config, (err)=> {

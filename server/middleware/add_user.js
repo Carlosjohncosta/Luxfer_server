@@ -4,11 +4,13 @@ const bcrypt = require('bcrypt');
 const {v4 : uuidv4} = require('uuid');
 const config = require("./dbConfig");
 const sql = require("mssql");
-const userInfo = require(__dirname + '../../middleware/private_user_info')
+const userInfo = require(__dirname + '../../middleware/private_user_info');
+const fs = require('fs');
 const saltRounds = 10;
 
 router.post('/', (req, res)=>{
     //gets current user info and checks if user is logged in and if user is admin. Throws Acess denied if conditions are not met.
+    //Using .then as userInfo returns promise.
     userInfo(req.session.username).then((user) => {
         if (user && user.isAdmin == true) {
             let username = req.body.username;
@@ -19,6 +21,15 @@ router.post('/', (req, res)=>{
                     sql.query("INSERT INTO dbo.User_Info (ID, Username, Email, Password) VALUES ('"+ uuidv4() +"', '"+ username +"', '"+ email +"', '"+ hash +"')",
                     function (err, result) {
                         if (err) throw(err)
+                        
+                        //creates file for new user.
+                        const dir = (__dirname  + `../../files/${username}`);
+                        if (!fs.existsSync(dir)) {
+                            fs.mkdirSync(dir);
+                            console.log("Directory is created.");
+                        } else {
+                            console.log("Directory already exists.");
+                        }
                         res.send("User succesfully added")
                     });
                 });

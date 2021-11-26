@@ -1,5 +1,9 @@
 # CHANGE LOG
 
+## 26/11/2021 16:02
+- Added a simple file system for each user.
+- Did a little more code cleanup.
+
 ## 26/11/2021 09:54
 - Added some more authentication
 - Added routes to seperate file to clean up index.

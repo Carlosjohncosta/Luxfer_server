@@ -14,7 +14,7 @@ app.use(session({
     secret:'0^LaPLk)_YWgSn}VS@=>&8r&MiYDkP',
     saveUninitialized: false,
     resave: false,
-}))
+}));
 
 //middleware, routes, and api loader
 app.use("/auth", require("./middleware/auth"));
