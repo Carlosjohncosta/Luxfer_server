@@ -1,6 +1,29 @@
 //cannot work without local host server (CORS policy error)
 let data;
 
+//Same function as decracated $(document).ready
+$(()=> {
+    getFileNames()
+});
+
+let getFileNames = () => {
+    $.ajax({
+        type: "POST",
+        url: `/get_file`,
+        contentType: 'application/json',
+        data: JSON.stringify({"getAll": true}),
+        success: (response)=> {
+            if (response.length > 0) {
+                for(let i = 0; i < response.length; i++) {
+                    $('#file_list').append(`<li id=${response[i]}><h3>${response[i]}</h3></li>`);
+                }
+            } else {
+                $('#file_list').append(`<h3>No files...</h3`);
+            }
+        }
+    });
+}
+
 //callBack defaults to genTable.
 let getFile = (fileName, tableId, callBack = genTable) => {
     //gets file.

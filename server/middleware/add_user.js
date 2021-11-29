@@ -21,7 +21,7 @@ router.post('/', (req, res)=>{
                     sql.query("INSERT INTO dbo.User_Info (ID, Username, Email, Password) VALUES ('"+ uuidv4() +"', '"+ username +"', '"+ email +"', '"+ hash +"')",
                     function (err, result) {
                         if (err) throw(err)
-                        
+
                         //creates file for new user.
                         const dir = (__dirname  + `../../files/${username}`);
                         if (!fs.existsSync(dir)) {
