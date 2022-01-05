@@ -4,7 +4,7 @@ const path = require('path');
 const userInfo = require(__dirname + '../../middleware/private_user_info');
 const fs = require('fs');
 
-//Sends either selected file, or sendsnames of files in users directory.
+//Sends either selected file, or sends names of files in users directory.
 router.post('/', (req, res) => {
     userInfo(req.session.username).then((user) => {
         if(req.session.isAuth) {

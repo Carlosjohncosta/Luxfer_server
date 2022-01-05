@@ -1,6 +1,5 @@
 const express = require("express");
 const path = require("path");
-const { user } = require("./middleware/dbConfig");
 const router = express.Router();
 const destroy = (req) => req.session.destroy();
 const userInfo = require(__dirname + '/middleware/private_user_info');
@@ -24,14 +23,20 @@ router.get('/styles/:file', (req, res) => {
 //Used to limit acces to admin only functions.
 router.get('/admin/:file', (req, res)=>{
     userInfo(req.session.username).then((user)=> {
-        if (user.isAdmin) {
-            res.sendFile(__dirname + `/public/admin/${req.params.file}.html`)
+        if (user) {
+            if (user.isAdmin) {
+                res.sendFile(__dirname + `/public/admin/${req.params.file}.html`)
+            } else {
+                res.send('Access denied...');
+            }
         } else {
-            res.send('Access denied...');
+            res.send('Invalid session, please re-log in.')
         }
     })
 });
 
+
+//Used for any URL after logged in
 router.get('/:url', (req, res) => {
 	if(req.session.isAuth) {
 		res.sendFile(path.join(__dirname + `/public/${req.params.url}.html`));

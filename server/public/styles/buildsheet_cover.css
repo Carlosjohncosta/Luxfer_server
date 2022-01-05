@@ -1,0 +1,28 @@
+
+.cover_header {
+    border-bottom: 1px solid black;
+    display: block;
+}
+
+.cover_header h1 {
+    display: inline-block;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.cover_header table {
+    display: block;
+    float: right;
+}
+
+p1 {
+    display: block;
+    margin-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: dotted black 1px;
+}
+
+.cover_info table {
+    display: inline-block;
+    margin-left: 50px;
+}

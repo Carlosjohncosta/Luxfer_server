@@ -19,26 +19,7 @@
           color: red;
         }
     </style>
-     <script>
-       $(document).ready(() => {
-        $("#submit").click(()=>{
-          let username = $("#username").val();
-          let password = $("#password").val();
-          $.ajax({
-            url: '/auth',
-            type: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify({"username": username, "password": password})
-          }).done((data)=>{
-            if (data == "/home") {
-              window.location.href = data;
-            } else {
-              $("#error").html(data);
-            }
-          });
-        });
-      });
-  </script>
+    <script type="text/javascript" src="scripts/login.js"></script>
   </head>
   <body>
     <div id="bodyWrapper">

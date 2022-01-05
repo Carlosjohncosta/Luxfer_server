@@ -22,24 +22,11 @@
 
     <body>
 
-        <nav id ="main_nav">
+        <nav id ="main_nav" onload="getSideBar();">
 
             <div id="logo_container">
                 <img id="logo" src="icons/luxfer.jpg" width="100" height="100">
             </div>
-
-            <ul>
-                <div onmouseover="expand('.My_files')" onmouseout="collapse('.My_files')">
-                    <li>My files</li>
-                    <li class="My_files">working</li>
-                    <li class="My_files">working</li>
-                    <li class="My_files">working</li>
-                    <li class="My_files">working</li>
-                    <li class="My_files">working</li>
-                </div>
-                <li>My Files</li>
-                <a href="/" class="no_style"><li>Logout</li></a>
-            </ul>
 
         </nav>
 
@@ -61,9 +48,12 @@
                     <div id="inner_content_wrapper">
                         <div class="text_container">
                             <ul id="file_list">
-
                             </ul>
-                        </div>
+
+                        <table id="table" >
+                                
+                        </table>
+                    </div>
                     </div>
                 </div>
             </main>

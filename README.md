@@ -1,5 +1,11 @@
 # CHANGE LOG
 
+## 05/01/2022
+- Made a template for worksheet cover page.
+- Side bar HTML is now sent from server to avoid needing to update it on multiple pages.
+- As was done above, the same will be done for all worksheet related items.
+- Fixed some bugs with login and authentication.
+
 ## 29/11/2021 12:15
 - Added Admin route.
 - Added more functionality to get files api.
@@ -11,7 +17,7 @@
 ## 26/11/2021 09:54
 - Added some more authentication
 - Added routes to seperate file to clean up index.
-- Added more sequre SQL and secret key.
+- Added more secure SQL and secret key.
 
 ## 25/11/2021 17:16
 - Added api to get pucblic user info, middleware is for private and public info (password, uuid.)
