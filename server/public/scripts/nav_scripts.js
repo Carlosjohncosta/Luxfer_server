@@ -1,11 +1,13 @@
 //All navigation functions to be added to this file.
 
+//Requests side-bar HTML on page load.
 (() => {
     $.ajax({
         type: "GET",
         url: `/side_bar`,
         contentType: 'application/json',
         success: (response)=> {
+            //Appends HTML response to main_nav div.
             $("#main_nav").append(response);
         }
     });

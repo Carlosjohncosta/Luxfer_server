@@ -4,7 +4,7 @@ const config = require("./dbConfig");
 const sql = require("mssql");
 const bcrypt = require('bcrypt');
 
-router.post('/', function(req, res) {
+router.post('/', (req, res) => {
 
 	//Gets password and username from request.
 	const username = req.body.username;
@@ -51,12 +51,12 @@ router.post('/', function(req, res) {
 							res.send("Incorrect password.");
 							return;
 						}
-					});	
+					});
 				} else {
 					res.send("Incorrect password.");
 				}		
 			});
-		})
+		});
 	} else {
 		res.send("Please input username and password.");
 		return;

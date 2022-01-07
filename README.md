@@ -1,6 +1,11 @@
 # CHANGE LOG
 
-## 05/01/2022
+## 07/01/2022 08:57
+- Added cover sheet table on SQl server.
+- Added some cover sheet response templates, and worksheet api.
+- Changed some anonymous functions to named for easier debug.
+
+## 05/01/2022 16:00
 - Made a template for worksheet cover page.
 - Side bar HTML is now sent from server to avoid needing to update it on multiple pages.
 - As was done above, the same will be done for all worksheet related items.

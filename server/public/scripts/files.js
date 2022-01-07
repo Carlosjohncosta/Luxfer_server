@@ -1,10 +1,12 @@
 let data;
 
+//Displays file names on page load, will probably be deprecated in some time.
 $(()=> {
     getFileNames()
 });
 
-let getFileNames = () => {
+//Gets names of all files in users folder
+function getFileNames() {
     $.ajax({
         type: "POST",
         url: `/get_file`,

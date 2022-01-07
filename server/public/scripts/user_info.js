@@ -3,7 +3,7 @@ $(()=>{
 });
 
 //callBack can be used to manipulate data.
-let getData = callBack => {
+function getData(callBack) {
     $.ajax({
         url: '/user_info',
         type: 'GET',
@@ -14,6 +14,7 @@ let getData = callBack => {
     });
 }
 
+//simply adds user info to top-bar.
 let showDetails = user => {
     $('#username').html(user.username);
     $('#email').html(user.email);

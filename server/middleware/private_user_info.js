@@ -1,7 +1,7 @@
 const sql = require("mssql");
 const config = require(__dirname + '/dbConfig');
 
-
+//Used to pass private user info within server.
 module.exports = async function (username){
     sql.connect(config, (err)=> {
         if (err) throw(err);

@@ -1,4 +1,4 @@
-//just config and login details for server. 
+//Config and login details for server. 
 
 module.exports = {
 	server: 'LUX-NOT-APP001',
