@@ -7,6 +7,5 @@ module.exports = {
     password: '9$K+|CRJU.bK*`JX=!RB5ZVr9xckAc',
     port: 1433,
 	trustServerCertificate: true,
-    spChars: /[!#$%^&*()+=\[\]{};':"\\|,<>\/?]+/
-};
-
+    spChars: /[!#$%^&*\'()+=\[\]{};':"\\|,<>\/?]+/
+}

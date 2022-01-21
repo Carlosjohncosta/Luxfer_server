@@ -5,10 +5,7 @@
     <head>
 
         <script type="text/javascript" src="scripts/jquery.js"></script>
-        <script type="text/javascript" src="scripts/nav_scripts.js"></script>
-        <script type="text/javascript" src="scripts/files.js"></script>
-        <script type="text/javascript" src="scripts/user_info.js"></script>
-        <script type="text/javascript" src="scripts/worksheets.js"></script>
+        <script type="text/javascript" src="scripts/scripts.js"></script>
         <script type="text/javascript" src="scripts/jquery.csv.min.js"></script>
 
         <link rel="stylesheet" href="styles/main_styles.css">
@@ -22,7 +19,7 @@
 
     </head>
 
-    <body onload="getWorkSheets(0, 'cover', displayCover)">
+    <body onload="getWorkSheets(0, 'cover', displayRes); getUserData(showDetails); getSideBar();">
 
         <nav id ="main_nav">
 
@@ -47,7 +44,7 @@
                 <h2>Work Sheets</h2>
                 <div id="content_wrapper">
                     <div id="inner_content_wrapper" style="display: block">
-                        
+                        <div id = "table"></div>
                     </div>
                 </div>
             </main>

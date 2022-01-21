@@ -8,8 +8,15 @@ router.post('/', (req, res) => {
         if(err) throw(err);
     });
     if (req.session.isAuth) {
+        let query;
+        if (req.body.item) {
+            query = `select * from ${req.body.table} where ${req.body.column}  like '%${req.body.item}%'`;
+        } else {
+            query = `select * from ${req.body.table}`;
+        }
+
         //Selects collumn names and data.
-        sql.query(`EXEC SP_COLUMNS ${req.body.table}; select * from ${req.body.table}`, (err, result) => {
+        sql.query(`EXEC SP_COLUMNS ${req.body.table}; ${query};`, (err, result) => {
 
             //Sends formated HTML table, iterating through each result.
             let output = `<table><tr>`;
@@ -32,6 +39,7 @@ router.post('/', (req, res) => {
             output == `</table>`
             res.send(output);
         });
+
         return;
     } else {
         res.send("Access denied...");

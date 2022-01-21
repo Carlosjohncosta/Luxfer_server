@@ -22,6 +22,6 @@ router.post('/', (req, res) => {
             res.send("Access denied...");
         }
     });
-})
+});
 
 module.exports = router;

@@ -38,6 +38,8 @@ main, header {
     padding-top: 15px;
     padding-bottom: 15px;
     padding-left: 10px;
+    border-bottom: 1px solid #00003f;
+    border-radius: 5px;
     user-select: none;
 }
 
@@ -134,4 +136,25 @@ table, th, td {
 
 th, td {
     padding: 5px;
+}
+
+#search {
+    padding: 10px;
+    display: inline-block;
+}
+
+#search_box {
+    margin-bottom: 20px;
+    display: inline;
+}
+
+#search label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.search_input {
+    margin-right: 30px;
+    margin-bottom: 20px;
+    display: inline-block;
 }

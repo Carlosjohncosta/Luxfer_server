@@ -5,14 +5,10 @@
     <head>
 
         <script type="text/javascript" src="scripts/jquery.js"></script>
-        <script type="text/javascript" src="scripts/nav_scripts.js"></script>
-        <script type="text/javascript" src="scripts/files.js"></script>
-        <script type="text/javascript" src="scripts/user_info.js"></script>
-        <script type="text/javascript" src="scripts/worksheets.js"></script>
+        <script type="text/javascript" src="scripts/scripts.js"></script>
         <script type="text/javascript" src="scripts/jquery.csv.min.js"></script>
 
         <link rel="stylesheet" href="styles/main_styles.css">
-        <link rel="stylesheet" href="styles/buildsheet_cover.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik">
 
         <meta charset="UTF-8">
@@ -22,7 +18,7 @@
 
     </head>
 
-    <body onload="getTable('Part_Info', displayCover)">
+    <body onload="getTable('Part_Info', displayRes); getSideBar(); getUserData(showDetails);">
 
         <nav id ="main_nav">
 
@@ -47,7 +43,22 @@
                 <h2>Parts List</h2>
                 <div id="content_wrapper">
                     <div id="inner_content_wrapper" style="display: block">
-                        
+                        <div id = "search">
+
+                            <div class="search_input">
+                                <label for="part">Search by part number</label>
+                                <input type="part" id="part" placeholder="Search by part number">
+                                <button onclick="getTableItem('Part_Info', 'SAP_Number', $('#part').val(), displayRes)">Search</button>
+                            </div>
+
+                            <div class="search_input">
+                                <label for="part">Search by decription</label>
+                                <input type="part" id="description" placeholder="Search by decription">
+                                <button onclick="getTableItem('Part_Info', 'SAP_Description', $('#description').val(), displayRes)">Search</button>
+                            </div>
+
+                        </div>
+                        <div id = "table"></div>
                     </div>
                 </div>
             </main>

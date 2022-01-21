@@ -29,14 +29,14 @@ router.post('/', (req, res)=>{
         case "cover":
 
             //Returns cover sheet HTML.
-            sql.query(`SELECT * FROM AF_Build_Sheet_Cover WHERE ID = ${req.body.ID}`, (err, result)=> {
+            sql.query(/*SQL*/`SELECT * FROM AF_Build_Sheet_Cover WHERE ID = ${req.body.ID}`, (err, result)=> {
                 try {
-                    res.send(`
+                    res.send(/*HTML*/
+                    `
                         <div class="cover_container">
 
                             <div class="cover_header">
                                 <h1>Paperless Build Sheet</h1>
-
                                 <table class="cover_table">
                                     <tr>
                                         <th>AUTHOR</th>
@@ -62,9 +62,9 @@ router.post('/', (req, res)=>{
                             </div>
 
                             <div class="cover_info">
-                                <p1>please complete the below information fully</p1>
+                                <p>please complete the below information fully</p>
                                 <h3>Customer and job details</h3>
-                            
+                                
                                 <table class="cover_table">
                                     <tr>
                                         <th>Customer</th>
