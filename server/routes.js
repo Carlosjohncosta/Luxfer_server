@@ -3,6 +3,7 @@ const path = require("path");
 const router = express.Router();
 const destroy = (req) => req.session.destroy();
 const userInfo = require(__dirname + '/middleware/private_user_info');
+const template = require(__dirname + '/public/templates/main_template');
 
 router.use('/', express.static(path.join(__dirname, "public")));
 
@@ -39,7 +40,7 @@ router.get('/admin/:file', (req, res)=>{
 //Used for any URL after logged in
 router.get('/:url', (req, res) => {
 	if(req.session.isAuth) {
-		res.sendFile(path.join(__dirname + `/public/${req.params.url}.html`));
+		res.send(template(req.params.url));
 	} else {
 		res.redirect('/');
 	}

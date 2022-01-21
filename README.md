@@ -1,5 +1,13 @@
 # CHANGE LOG
 
+## 21/01/2022 14:23
+- All HTML responses are now templates saved as .js files (will be useful if the page needs to be updated.)
+
+## 21/01/2022 13:00
+- added search functions for "parts list"
+- all scripts are now within one file.
+- making a new branch as I would like to create HTML templates rather than have seperate files.
+
 ## 21/01/2022
 - Added part info to database and created a CSV reponse api.
 - Fixed bug of side bar not being loaded sometimes (DOM manipulation bug.)

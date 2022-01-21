@@ -1,7 +1,8 @@
 
-const template = require('templates');
+const sidebar = require(__dirname + '/side_bar');
 
 module.exports = page => {
+    page = require(__dirname + `/${page}`);
     const res = /*HTML*/
     `
     <!DOCTYPE html>
@@ -20,18 +21,18 @@ module.exports = page => {
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-            <title>Work Sheets</title>
+            <title>${page.title}</title>
 
         </head>
 
-        <body onload="${template[page].reqScripts}">
+        <body onload="${page.reqScripts}">
 
             <nav id ="main_nav">
 
                 <div id="logo_container">
                     <img id="logo" src="icons/luxfer.jpg" width="100" height="100">
                 </div>
-
+                ${sidebar}
             </nav>
 
             <div id="body_wrapper">
@@ -46,10 +47,10 @@ module.exports = page => {
                 </div>
 
                 <main>
-                    <h2>${template[page].contentHeader}</h2>
+                    <h2>${page.title}</h2>
                     <div id="content_wrapper">
                         <div id="inner_content_wrapper" style="display: block">
-                            ${template[page].content}
+                            ${page.content}
                         </div>
                     </div>
                 </main>
@@ -58,5 +59,6 @@ module.exports = page => {
         </body>
 
     </html>
-    `
+    `;
+    return res;
 }
