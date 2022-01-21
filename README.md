@@ -1,5 +1,9 @@
 # CHANGE LOG
 
+## 21/01/2022
+- Added part info to database and created a CSV reponse api.
+- Fixed bug of side bar not being loaded sometimes (DOM manipulation bug.)
+
 ## 07/01/2022 08:57
 - Added cover sheet table on SQl server.
 - Added some cover sheet response templates, and worksheet api.

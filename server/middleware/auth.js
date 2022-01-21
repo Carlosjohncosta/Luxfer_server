@@ -14,7 +14,7 @@ router.post('/', (req, res) => {
 		
 		//detects if user is already logged in.
 		if(req.session.username) {
-			res.send("Cannot login with active session, Please refresh browser");
+			res.send("Cannot login with active session, Please try again");
 			req.session.destroy();
 			return;
 		}

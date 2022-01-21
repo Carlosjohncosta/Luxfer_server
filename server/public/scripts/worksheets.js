@@ -15,5 +15,18 @@ function getWorkSheets(ID, section, callBack) {
     });
 }
 
+function getTable(name, callBack) {
+    $.ajax({
+        type: "POST",
+        url: `/get_table`,
+        contentType: 'application/json',
+        data: JSON.stringify({"table": name}),
+        success: (response)=> {
+            //callback for data use depending on section/data.
+            callBack(response);
+        }
+    });
+}
+
 //displays cover sheet.
 let displayCover = data => $("#inner_content_wrapper").append(data);

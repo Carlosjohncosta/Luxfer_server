@@ -1,7 +1,7 @@
 //All navigation functions to be added to this file.
 
 //Requests side-bar HTML on page load.
-(() => {
+$(() => {
     $.ajax({
         type: "GET",
         url: `/side_bar`,
@@ -11,7 +11,7 @@
             $("#main_nav").append(response);
         }
     });
-})();
+});
 
 //expands nav list (id of hidden list as parameter)
 function expand(id) {

@@ -7,7 +7,7 @@ const userInfo = require(__dirname + '/middleware/private_user_info');
 router.use('/', express.static(path.join(__dirname, "public")));
 
 router.get('/', (req, res) => {
-	console.log(`${req.session.username} logged out.`);
+	if (req.session.username) console.log(`${req.session.username} logged out.`);
 	destroy(req);
 	res.sendFile(path.join(__dirname + '/public/login.html'));
 });
