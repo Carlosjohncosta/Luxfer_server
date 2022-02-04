@@ -1,3 +1,5 @@
+//Will become deprecated
+
 const express = require("express");
 const router = express.Router();
 const path = require('path');
@@ -15,6 +17,17 @@ router.post('/', (req, res) => {
                     }
                     res.send(files);
                 });
+            } else if(req.body.getRiskAssessNames) {
+                fs.readdir(__dirname + `../../../Risk Assessments`, (err, files) => {
+                    if (err) {
+                        throw err;
+                    }
+                    let fileNames = '';
+                    files.forEach(file => {fileNames += `<li id=${file}><h3>${file}</h3></li>`});
+                    res.send(fileNames);
+                    res.end();
+                });
+
             } else {
                 res.sendFile(path.join(__dirname + `../../files/${user.Username}/${req.body.fileName}`));
             }

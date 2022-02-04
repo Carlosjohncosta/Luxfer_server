@@ -36,6 +36,7 @@ router.get('/admin/:file', (req, res)=>{
     })
 });
 
+router.get('/favicon.ico', (req, res) => res.status(204));
 
 //Used for any URL after logged in
 router.get('/:url', (req, res) => {

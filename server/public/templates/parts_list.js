@@ -1,7 +1,8 @@
-module.exports = {
+module.exports = 
+{
     title: `Parts list`,
     reqScripts: `getTable('Part_Info', displayRes); getUserData(showDetails);`,
-    content: /*HTML*/ 
+    content: /*HTML*/
     `
         <div id = "search">
 
@@ -16,6 +17,8 @@ module.exports = {
                 <input type="part" id="description" placeholder="Search by decription">
                 <button onclick="getTableItem('Part_Info', 'SAP_Description', $('#description').val(), displayRes)">Search</button>
             </div>
+
+            <p>Number of results: <span class = "num_items"></span></p>
 
         </div>
         <div id = "table"></div>

@@ -43,7 +43,7 @@ router.post('/', (req, res) => {
 							//sets session headers.
 							req.session.isAuth = true;
 							req.session.username = username;
-							console.log(`${username} logged in.`);
+							console.log(`${username} logged in. IP: ${req.connection.remoteAddress}`);
 							//sends response. Not using redirect as the site script re-directs;
 							res.send("/home");
 							return;

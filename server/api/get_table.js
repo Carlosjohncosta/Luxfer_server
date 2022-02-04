@@ -15,6 +15,11 @@ router.post('/', (req, res) => {
             query = `select * from ${req.body.table}`;
         }
 
+        if(config.spChars.test(req.body.item)){
+			res.send("<p>No special characters please</p>");
+			return;
+		}
+
         //Selects collumn names and data.
         sql.query(`EXEC SP_COLUMNS ${req.body.table}; ${query};`, (err, result) => {
 
@@ -27,8 +32,10 @@ router.post('/', (req, res) => {
             });
             output += `</tr>`;
 
+            let numItems = 0;
             //Table data.
             result.recordsets[1].forEach(data => {
+                numItems ++;
                 output += `<tr>`;
                 for (let rowItem in data) {
                     output += `<td>${data[rowItem]}</td>`;
@@ -37,7 +44,7 @@ router.post('/', (req, res) => {
             });
 
             output == `</table>`
-            res.send(output);
+            res.send({table : output, numItems : numItems});
         });
 
         return;

@@ -1,18 +1,12 @@
 //expands nav list (id of hidden list as parameter)
 function expand(id) {
-    $(id).css(
-    {
-        "display": "block",
-        "padding-top": "5px",
-        "padding-bottom": "5px"
-    });
+    $(id).slideUp();
 }
 
 //collapses nav list (id of hidden list as parameter)
 function collapse(id) {
-    $(id).css({"display": "none"});
+    $(id).slideDown();
 }
-
 
 
 //USER DATA:
@@ -27,6 +21,7 @@ function getUserData(callBack) {
         }
     });
 }
+
 
 //simply adds user info to top-bar.
 let showDetails = user => {
@@ -108,7 +103,7 @@ function getWorkSheets(ID, section, callBack) {
     });
 }
 
-let tableData;
+
 function getTable(name, callBack) {
     $.ajax({
         type: "POST",
@@ -117,14 +112,16 @@ function getTable(name, callBack) {
         data: JSON.stringify({"table": name}),
         success: (response)=> {
             //callback for data use depending on section/data.
-            tableData = response;
-            callBack(tableData);
+            callBack(response);
         }
     });
 }
 
 //displays cover sheet.
-let displayRes = data => {$("#table").empty(); $("#table").append(data);}
+let displayRes = data => {
+    $("#table").empty().append(data.table); 
+    $(".num_items").html(data.numItems)
+}
 
 
 //PART INFO:
@@ -135,8 +132,8 @@ function getTableItem(name, column, item, callBack) {
         contentType: 'application/json',
         data: JSON.stringify({"table": name, "column": column, "item": item}),
         success: (response) => {
-            tableData = response;
-            callBack(tableData);
+            callBack(response);
         }
-    })
+    });
 }
+ 

@@ -14,14 +14,15 @@ main, header {
 
 #body_wrapper {
     height: 100%;
-    padding-left: 300px;
+    padding-left: 200px;
     display: block;
 }
 
 #main_nav {
+
     height: 100%;
     background-color: #19446D;
-    width: 300px;
+    width: 200px;
     margin-left: 0px;
     float: left;
     position: fixed;
@@ -45,18 +46,13 @@ main, header {
 
 #logo_container {
     font-size: 0;
-    display: inline-block;
-    width: 300px;
-    height: 150px;
-    background-color: #00003f;
+    display: block;
+    background-color: white;
+    border-bottom: 1px solid #00003f;
 }
 
 #logo {
-    display: block;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    margin-left: 100px;
-    margin-right: 100px;
+   margin-left: 20%;
 }
 
 #top_bar {

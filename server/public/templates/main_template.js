@@ -13,7 +13,7 @@ module.exports = page => {
             <script type="text/javascript" src="scripts/jquery.js"></script>
             <script type="text/javascript" src="scripts/scripts.js"></script>
             <script type="text/javascript" src="scripts/jquery.csv.min.js"></script>
-
+            
             <link rel="stylesheet" href="styles/main_styles.css">
             <link rel="stylesheet" href="styles/buildsheet_cover.css">
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik">

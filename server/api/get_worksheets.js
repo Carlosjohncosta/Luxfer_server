@@ -22,7 +22,7 @@ router.post('/', (req, res)=>{
                 result.recordset.forEach((record)=> {
                     response += `<li>Serial: ${record.SN}</li>`
                 });
-                res.send(response + `</ul>`);
+                res.send({table : response + `</ul>`});
             });
             break;
 
@@ -32,7 +32,7 @@ router.post('/', (req, res)=>{
             sql.query(/*SQL*/`SELECT * FROM AF_Build_Sheet_Cover WHERE ID = ${req.body.ID}`, (err, result)=> {
                 try {
                     res.send(/*HTML*/
-                    `
+                    {table : `
                         <div class="cover_container">
 
                             <div class="cover_header">
@@ -89,9 +89,9 @@ router.post('/', (req, res)=>{
                             </div>
                         
                         </div>
-                    `)
+                    `});
                 } catch(err) {
-                    res.send("Something went wrong, please try again...");
+                    res.send({table : "Something went wrong, please try again..."});
                 }
             })
 
@@ -99,7 +99,7 @@ router.post('/', (req, res)=>{
 
         //Case for invalid section.
         default:
-            res.send("<p>invalid selection...</p>");
+            res.send({table : "<p>invalid selection...</p>"});
             break;
 
         }
